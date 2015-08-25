@@ -1,0 +1,17 @@
+{
+  "log": ["HTTP+"],
+  "CORS": {
+    "Origin":["http://localhost:9000", "http://0.0.0.0:9000"],
+    "LoginOrigin":["http://localhost:9000", "http://0.0.0.0:9000"],
+    "Headers":["Content-Type"],
+    "MaxAge": 1728000
+ },
+  "databases": {
+    "notebook": {
+      "server": "walrus:",
+      "users": {
+        "GUEST": {"disabled": false, "admin_channels": ["*"] }
+      }
+    }
+  }
+}

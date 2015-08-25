@@ -1,0 +1,17 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-10">
+      <div class="form-group">
+        <label for="docNameInput">Name</label>
+        <input class="form-control" ng-model="doc.name" id="docNameInput"/>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" ng-model="doc.content"></textarea>
+      </div>
+      <button class="btn btn-primary btn-lg" ng-click="save()" ng-enabled="doc.name && doc.content"><i class="glyphicon glyphicon-floppy-disk"></i></button>
+      <button class="btn btn-danger pull-right" ng-click="delete()" ng-if="doc._id"><i class="glyphicon glyphicon-trash"></i></button>
+    </div>
+    <div class="col-xs-2">
+    </div>
+  </div>
+</div>
