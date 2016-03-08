@@ -17,7 +17,7 @@ angular.module('pbtestApp')
     }
 
     $scope.save = function() {
-      Notes.save($scope.doc).then(function(data) {
+      Notes.save($scope.doc).then(function() {
         // Redirect to view mode
         $location.url('/view/' + $scope.doc._id);
         $location.replace();

@@ -28,11 +28,11 @@ angular.module('pbtestApp')
     db.replicate.from(remoteSyncUrl, opts, syncError);
 
     //Create type index
-    var design_doc = {
+    var newDoc = {
       _id: '_design/' + designDocName,
       views: {
         by_type: {
-          map: function (doc) { emit(doc['type']); }.toString()
+          map: function (doc) { emit(doc.type); }.toString()
         }
       }
     };
@@ -45,13 +45,13 @@ angular.module('pbtestApp')
       });
     }
 
-    db.get(design_doc._id)
+    db.get(newDoc._id)
       .then(function(doc) {
-        doc.views = design_doc.views;
+        doc.views = newDoc.views;
         createIndices(doc);
       })
-      .catch(function(err) {
-        createIndices(design_doc);
+      .catch(function() {
+        createIndices(newDoc);
       });
 
     return db;

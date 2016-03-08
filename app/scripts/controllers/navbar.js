@@ -8,5 +8,6 @@
  * Controller of the pbtestApp
  */
 angular.module('pbtestApp')
-  .controller('NavbarCtrl', function ($scope) {
+  .controller('NavbarCtrl', function () {
+    //Nothing to do here yet
   });

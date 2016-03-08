@@ -18,12 +18,12 @@ angular.module('pbtestApp')
 
       this.list = [];
 
-      this.info = function (msg) {
+      this.info = function () {
         this.add(arguments[0], Types.Info);
         $log.log.apply($log, arguments);
       };
 
-      this.error = function (msg) {
+      this.error = function () {
         this.add(arguments[0], Types.Error);
         $log.error.apply($log, arguments);
       };

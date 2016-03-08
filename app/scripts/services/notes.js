@@ -9,7 +9,7 @@
  */
 angular.module('pbtestApp')
   .service('Notes', ['$moment', '$q', 'db', 'designDocName', function ($moment, $q, db, designDocName) {
-    var doc_type = 'Notes';
+    var docType = 'Notes';
 
     this.get = function (id) {
       var defer = $q.defer(),
@@ -30,7 +30,7 @@ angular.module('pbtestApp')
           result = [];
       result.$promise = defer.promise;
 
-      db.query(designDocName + '/by_type', {key: doc_type, include_docs: true}).then(function (data) {
+      db.query(designDocName + '/by_type', {key: docType, include_docs: true}).then(function (data) {
         result.push.apply(result, _.pluck(data.rows, 'doc'));
         defer.resolve(result);
       }).catch(function (err) {
@@ -45,8 +45,8 @@ angular.module('pbtestApp')
         doc._id = $moment().format();
       }
 
-      if (! angular.isDefined(doc["type"])) {
-        doc["type"] = doc_type;
+      if (! angular.isDefined(doc.type)) {
+        doc.type = docType;
       }
 
       doc = _.omit(doc, '$promise');
