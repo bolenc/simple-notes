@@ -24,8 +24,7 @@ angular.module('pbtestApp')
     }
 
     var opts = {live: true, retry: true};
-    db.replicate.to(remoteSyncUrl, opts, syncError);
-    db.replicate.from(remoteSyncUrl, opts, syncError);
+    db.sync(remoteSyncUrl, opts, syncError);
 
     //Create type index
     var newDoc = {
